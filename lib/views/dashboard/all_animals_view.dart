@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../view_models/dashboard/all_animals_view_model.dart';
+import '../../widgets/animal_card.dart';
 import '../../widgets/app_background.dart';
 
 class AllAnimalsView extends StatelessWidget {
@@ -20,6 +21,13 @@ class AllAnimalsView extends StatelessWidget {
           ),
         ),
         drawer: const Drawer(),
+        body: GridView.count(
+          crossAxisCount: 2,
+          children: const [
+            AnimalCard(
+                name: "Farm Animal", imagePath: "assets/images/dog.jpeg"),
+          ],
+        ),
       ),
       viewModelBuilder: () => AllAnimalsViewModel(),
     );
