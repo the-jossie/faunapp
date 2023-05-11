@@ -13,9 +13,15 @@ class SplashView extends StatelessWidget {
     SizeConfig().init(context);
     return ViewModelBuilder<SplashViewModel>.reactive(
       viewModelBuilder: () => SplashViewModel(),
-      onModelReady: (model) => model.init(),
+      onViewModelReady: (model) => model.init(),
       builder: (context, viewModel, child) {
-        return const AppBackground();
+        return AppBackground(
+          body: Center(
+            child: Image.asset(
+              "assets/images/logo.png",
+            ),
+          ),
+        );
       },
     );
   }
