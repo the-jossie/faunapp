@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "splash_screen",
       routes: routes,
       theme: ThemeData(
+        primaryColor: AppConfigService.hexToColor("#001EBB"),
         appBarTheme: AppBarTheme(
           color: AppConfigService.hexToColor("#021B9E"),
           elevation: 0,
