@@ -20,7 +20,7 @@ class FAButton extends StatelessWidget {
     required this.child,
     required this.onPressed,
     this.width,
-    this.height = 55.0,
+    this.height = 60.0,
     this.radius = 16,
     this.color,
     this.padding,
