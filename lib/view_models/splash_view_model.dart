@@ -18,7 +18,7 @@ class SplashViewModel extends BaseViewModel {
         await _storage.removeKey("token");
         AppConfigService.offAllNamed("auth");
       } else {
-        AppConfigService.offAllNamed("dashboard");
+        AppConfigService.offAllNamed("all_animals_screen");
       }
     });
   }

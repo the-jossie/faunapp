@@ -26,7 +26,16 @@ class MyApp extends StatelessWidget {
       initialRoute: "splash_screen",
       routes: routes,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: AppConfigService.hexToColor("#001EBB"),
+        appBarTheme: AppBarTheme(
+          color: AppConfigService.hexToColor("#021B9E"),
+          elevation: 0,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
+        ),
       ),
     );
   }
