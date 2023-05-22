@@ -47,17 +47,6 @@ class AuthView extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
                 const Spacer(),
-                // FAButton(
-                //     child: const Text(
-                //       "Sign In",
-                //       style: TextStyle(
-                //         fontWeight: FontWeight.bold,
-                //         fontSize: 18,
-                //         color: Colors.white,
-                //       ),
-                //     ),
-                //     onPressed: () => viewModel.goToPage(1)),
-                // const SizedBox(height: 30),
                 FAButton(
                   onPressed: () => viewModel.goToPage(2),
                   width: 70.w,

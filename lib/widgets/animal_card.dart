@@ -10,7 +10,6 @@ class AnimalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      height: 400,
       width: MediaQuery.of(context).size.width / 2,
       decoration: const BoxDecoration(
         boxShadow: [
@@ -21,39 +20,24 @@ class AnimalCard extends StatelessWidget {
           )
         ],
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+        borderRadius: BorderRadius.all(
+          Radius.circular(12),
         ),
       ),
       child: Column(
         children: [
-          Container(
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              ),
-              image: DecorationImage(
-                image: AssetImage(
-                  imagePath,
-                ),
-              ),
-            ),
-            // child: Image.asset(
-            //   imagePath,
-            //   fit: BoxFit.fill,
-            // ),
+          CircleAvatar(
+            backgroundImage: AssetImage(imagePath),
+            radius: 45,
           ),
-          const Spacer(),
+          const SizedBox(height: 28),
           Text(
             name,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
-          )
+          ),
         ],
       ),
     );
