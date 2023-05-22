@@ -47,7 +47,6 @@ class LoginAuthView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.w600,
-                        // height: 1.3,
                         color: Colors.white,
                       ),
                     ),
@@ -98,18 +97,14 @@ class LoginAuthView extends StatelessWidget {
                                   activeColor:
                                       AppConfigService.hexToColor("#021B9E"),
                                 ),
-                                GestureDetector(
-                                  onTap: () => viewModel.handleIsRememberMe(
-                                      !viewModel.isRememberMe),
-                                  child: Text(
-                                    "Remember Me",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: AppConfigService.hexToColor(
-                                          "#021B9E"),
-                                    ),
+                                Text(
+                                  "Remember Me",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color:
+                                        AppConfigService.hexToColor("#021B9E"),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             Text(
@@ -141,7 +136,7 @@ class LoginAuthView extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         GestureDetector(
-                          onTap: () => {},
+                          onTap: () => openSignupView(),
                           child: Text(
                             'Create an account',
                             style: TextStyle(

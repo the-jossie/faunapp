@@ -102,7 +102,9 @@ class AuthView extends StatelessWidget {
             LoginAuthView(
               openSignupView: () => viewModel.goToPage(2),
             ),
-            const SignupAuthView()
+            SignupAuthView(
+              openSigninView: () => viewModel.goToPage(1),
+            )
           ],
         ),
       ),
