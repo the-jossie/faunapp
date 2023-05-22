@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../view_models/dashboard/all_animals_view_model.dart';
+import '../../view_models/dashboard/categories_view_model.dart';
 import '../../widgets/animal_card.dart';
 import '../../widgets/app_background.dart';
 
-class AllAnimalsView extends StatelessWidget {
-  const AllAnimalsView({Key? key}) : super(key: key);
+class CategoriesView extends StatelessWidget {
+  const CategoriesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<AllAnimalsViewModel>.reactive(
+    return ViewModelBuilder<CategoriesViewModel>.reactive(
       builder: (context, model, child) => AppBackground(
         appBar: AppBar(
           title: const Text(
@@ -38,7 +38,7 @@ class AllAnimalsView extends StatelessWidget {
               .toList(),
         ),
       ),
-      viewModelBuilder: () => AllAnimalsViewModel(),
+      viewModelBuilder: () => CategoriesViewModel(),
     );
   }
 }
