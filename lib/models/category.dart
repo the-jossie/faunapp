@@ -1,8 +1,8 @@
-class Animal {
+class Category {
   String name;
   String image;
 
-  Animal({
+  Category({
     required this.name,
     required this.image,
   });

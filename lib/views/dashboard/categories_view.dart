@@ -28,11 +28,11 @@ class CategoriesView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 25),
           crossAxisSpacing: 25,
           mainAxisSpacing: 40,
-          children: model.allAnimals
+          children: model.allCategories
               .map(
-                (e) => const AnimalCard(
-                  name: "Farm Animal",
-                  imagePath: "assets/images/dog.jpeg",
+                (category) => AnimalCard(
+                  name: category.name,
+                  imagePath: category.image,
                 ),
               )
               .toList(),

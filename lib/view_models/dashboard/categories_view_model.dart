@@ -1,11 +1,11 @@
-import 'package:faunapp/models/animal.dart';
+import 'package:faunapp/models/category.dart';
 import 'package:stacked/stacked.dart';
 
 class CategoriesViewModel extends BaseViewModel {
-  final List<Animal> _allAnimals = List.filled(
+  final List<Category> _allCategories = List.filled(
     8,
-    Animal(name: "Farm Animal", image: "assets/images/dog.jpeg"),
+    Category(name: "Farm Animals", image: "assets/images/dog.jpeg"),
   );
 
-  List<Animal> get allAnimals => _allAnimals;
+  List<Category> get allCategories => _allCategories;
 }
