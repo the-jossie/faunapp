@@ -99,7 +99,9 @@ class AuthView extends StatelessWidget {
                 const Spacer(),
               ],
             ),
-            const LoginAuthView(),
+            LoginAuthView(
+              openSignupView: () => viewModel.goToPage(2),
+            ),
             const SignupAuthView()
           ],
         ),

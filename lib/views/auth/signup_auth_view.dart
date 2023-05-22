@@ -28,9 +28,8 @@ class SignupAuthView extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: AppConfigService.hexToColor("#029EF7"),
+                    color: AppConfigService.hexToColor("#366ED8"),
                     spreadRadius: 4,
-                    blurRadius: 8,
                   )
                 ],
                 color: AppConfigService.hexToColor("#021B9E"),
