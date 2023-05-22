@@ -1,6 +1,5 @@
 import 'package:faunapp/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../view_models/auth/login_auth_view_model.dart';
@@ -8,7 +7,10 @@ import '../../widgets/button.dart';
 import '../../widgets/input.dart';
 
 class LoginAuthView extends StatelessWidget {
-  const LoginAuthView({Key? key}) : super(key: key);
+  final Function openSignupView;
+
+  const LoginAuthView({required this.openSignupView, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +22,14 @@ class LoginAuthView extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.only(
-                top: 150,
-                left: 33,
-                bottom: 18,
-                right: 33,
+                top: 120,
+                bottom: 27,
               ),
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: AppConfigService.hexToColor("#029EF7"),
+                    color: AppConfigService.hexToColor("#366ED8"),
                     spreadRadius: 4,
-                    blurRadius: 8,
                   )
                 ],
                 color: AppConfigService.hexToColor("#021B9E"),
@@ -39,26 +38,28 @@ class LoginAuthView extends StatelessWidget {
                   bottomRight: Radius.circular(30),
                 ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Welcome",
-                    style: GoogleFonts.sofia(
-                      fontSize: 32,
-                      height: 1.3,
-                      color: Colors.white,
+              child: const Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Welcome Back!",
+                      style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Back",
-                    style: GoogleFonts.sofia(
-                      fontSize: 32,
-                      height: 1.3,
-                      color: Colors.white,
+                    SizedBox(height: 10),
+                    Text(
+                      "Please login to continue",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Container(
@@ -66,13 +67,6 @@ class LoginAuthView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Sign In",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                   Form(
                     key: viewModel.loginFormKey,
                     child: Column(
@@ -92,27 +86,66 @@ class LoginAuthView extends StatelessWidget {
                               value.isEmpty ? "Password is required" : null,
                         ),
                         const SizedBox(height: 10),
-                        Text(
-                          "Forgot Password?",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: AppConfigService.hexToColor("#021B9E")),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Checkbox(
+                                  value: viewModel.isRememberMe,
+                                  onChanged: viewModel.handleIsRememberMe,
+                                  activeColor:
+                                      AppConfigService.hexToColor("#021B9E"),
+                                ),
+                                Text(
+                                  "Remember Me",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color:
+                                        AppConfigService.hexToColor("#021B9E"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: AppConfigService.hexToColor("#021B9E"),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 100),
                   Center(
-                    child: FAButton(
-                      child: const Text(
-                        "Sign In",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.white,
+                    child: Column(
+                      children: [
+                        FAButton(
+                          child: const Text(
+                            "Sign In",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () => viewModel.login(),
                         ),
-                      ),
-                      onPressed: () => viewModel.login(),
+                        const SizedBox(height: 16),
+                        GestureDetector(
+                          onTap: () => openSignupView(),
+                          child: Text(
+                            'Create an account',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

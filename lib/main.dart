@@ -35,6 +35,11 @@ class MyApp extends StatelessWidget {
               bottom: Radius.circular(30),
             ),
           ),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppConfigService.hexToColor("#021B9E"),
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
+          ),
         ),
       ),
     );

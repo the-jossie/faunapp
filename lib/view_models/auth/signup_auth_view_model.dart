@@ -5,6 +5,7 @@ import '../../config/app_config.dart';
 
 class SignupAuthViewModel extends BaseViewModel {
   final loginFormKey = GlobalKey<FormState>();
+  bool isAgreedToTerms = false;
 
   final TextEditingController _firstNameTextController =
       TextEditingController();
@@ -19,5 +20,11 @@ class SignupAuthViewModel extends BaseViewModel {
 
   void signup() {
     AppConfigService.offAllNamed("all_animals_screen");
+  }
+
+  void handleIsAgreedToTerms(bool? value) {
+    isAgreedToTerms = value!;
+
+    notifyListeners();
   }
 }

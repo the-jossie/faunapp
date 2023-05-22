@@ -7,17 +7,17 @@ import '../formatters/num.dart';
 
 class FATextFormField extends StatefulWidget {
   /*
-   * This is an abstractions of flutter textfield but with 
+   * This is an abstractions of flutter textfield but with
    * an added advantage with the default style from design
-   * 
-   * 
+   *
+   *
    */
   final TextEditingController? textEditingController;
   final String? title;
   final String? labelText;
   final String? prefixIcon;
   final String? suffixIcon;
-  final String? focusedBorderColor;
+  final String focusedBorderColor;
   final Function? onChange;
   final Function? callBackOnFocus;
   final Function? callBackOffFocus;
@@ -33,8 +33,9 @@ class FATextFormField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final Function? onEditingComplete;
   final Function? onSaved;
-  final FontWeight titleFontWeight;
   final Color? titleColor;
+  final double? titleFontSize;
+  final FontWeight titleFontWeight;
   final int maxLines;
   final int? minLines;
   final Color fillColor;
@@ -44,6 +45,7 @@ class FATextFormField extends StatefulWidget {
   final Color? prefixIconColor;
   final List<TextInputFormatter>? inputFormatters;
   final bool textCapitalization;
+
   const FATextFormField({
     Key? key,
     this.textEditingController,
@@ -63,11 +65,12 @@ class FATextFormField extends StatefulWidget {
     this.onEditingComplete,
     this.maxLines = 1,
     this.onSaved,
-    this.titleFontWeight = FontWeight.w400,
-    this.titleColor,
+    this.titleColor = const Color.fromARGB(255, 51, 102, 242),
+    this.titleFontSize = 18,
+    this.titleFontWeight = FontWeight.bold,
     this.fillColor = Colors.white,
     this.removeBorder = false,
-    this.radius = 0,
+    this.radius = 15,
     this.enabled = true,
     this.inputFormatters,
     this.minLines,
@@ -77,7 +80,7 @@ class FATextFormField extends StatefulWidget {
     this.textCapitalization = true,
     this.labelColor,
     this.textStyle,
-    this.focusedBorderColor,
+    this.focusedBorderColor = "#94C4E1",
   }) : super(key: key);
 
   @override
@@ -132,6 +135,7 @@ class _FATextFormFieldState extends State<FATextFormField> {
                       style: TextStyle(
                         fontWeight: widget.titleFontWeight,
                         color: widget.titleColor,
+                        fontSize: widget.titleFontSize,
                       ),
                     ),
                     SizedBox(
@@ -195,9 +199,10 @@ class _FATextFormFieldState extends State<FATextFormField> {
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: AppConfigService.hexToColor(
-                      widget.focusedBorderColor ?? "#B1D9E7",
+                      widget.focusedBorderColor,
                     ),
                   ),
+                  borderRadius: BorderRadius.circular(widget.radius),
                 ),
                 // focusedBorder: widget.removeBorder
                 //     ? OutlineInputBorder(
